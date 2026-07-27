@@ -30,6 +30,13 @@ typedef struct {
     preset_t *items;
 } presets_t;
 
+// Whether the device can actually zoom, as opposed to merely claiming to.
+int ptz_has_zoom(void);
+
+// Emit a PTZConfiguration, zoom elements included only when ptz_has_zoom().
+// Shared with the media services, which embed one in every PTZ profile.
+long ptz_cat_configuration(char *dest, char *filename, const char *use_count);
+
 int ptz_get_service_capabilities();
 int ptz_get_configurations();
 int ptz_get_configuration();

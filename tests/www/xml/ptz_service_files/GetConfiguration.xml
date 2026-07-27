@@ -12,17 +12,16 @@
                 <tt:UseCount>0</tt:UseCount>
                 <tt:NodeToken>PTZNodeToken</tt:NodeToken>
                 <tt:DefaultAbsolutePantTiltPositionSpace>http://www.onvif.org/ver10/tptz/PanTiltSpaces/PositionGenericSpace</tt:DefaultAbsolutePantTiltPositionSpace>
-                <tt:DefaultAbsoluteZoomPositionSpace>http://www.onvif.org/ver10/tptz/ZoomSpaces/PositionGenericSpace</tt:DefaultAbsoluteZoomPositionSpace>
+                %ZOOM_DEFAULT_ABS_SPACE%
                 <tt:DefaultRelativePanTiltTranslationSpace>http://www.onvif.org/ver10/tptz/PanTiltSpaces/TranslationGenericSpace</tt:DefaultRelativePanTiltTranslationSpace>
-                <tt:DefaultRelativeZoomTranslationSpace>http://www.onvif.org/ver10/tptz/ZoomSpaces/TranslationGenericSpace</tt:DefaultRelativeZoomTranslationSpace>
+                %ZOOM_DEFAULT_REL_SPACE%
                 <tt:DefaultContinuousPanTiltVelocitySpace>http://www.onvif.org/ver10/tptz/PanTiltSpaces/VelocityGenericSpace</tt:DefaultContinuousPanTiltVelocitySpace>
-                <tt:DefaultContinuousZoomVelocitySpace>http://www.onvif.org/ver10/tptz/ZoomSpaces/VelocityGenericSpace</tt:DefaultContinuousZoomVelocitySpace>
+                %ZOOM_DEFAULT_CONT_SPACE%
                 <tt:DefaultPTZSpeed>
                     <tt:PanTilt x="1.0"
                                 y="1.0"
                                 space="http://www.onvif.org/ver10/tptz/PanTiltSpaces/GenericSpeedSpace"/>
-                    <tt:Zoom x="1.0"
-                             space="http://www.onvif.org/ver10/tptz/ZoomSpaces/ZoomGenericSpeedSpace"/>
+                    %ZOOM_DEFAULT_SPEED%
                 </tt:DefaultPTZSpeed>
                 <tt:DefaultPTZTimeout>PT00H00M05S</tt:DefaultPTZTimeout>
                 <tt:PanTiltLimits>
@@ -38,15 +37,7 @@
                         </tt:YRange>
                     </tt:Range>
                 </tt:PanTiltLimits>
-                <tt:ZoomLimits>
-                    <tt:Range>
-                        <tt:URI>http://www.onvif.org/ver10/tptz/ZoomSpaces/PositionGenericSpace</tt:URI>
-                        <tt:XRange>
-                            <tt:Min>%MIN_Z%</tt:Min>
-                            <tt:Max>%MAX_Z%</tt:Max>
-                        </tt:XRange>
-                    </tt:Range>
-                </tt:ZoomLimits>
+                %ZOOM_LIMITS%
                 <tt:Extension>
                     <tt:PTControlDirection>
                         <tt:EFlip>

@@ -21,6 +21,7 @@
 #include "log.h"
 #include "mxml_wrapper.h"
 #include "onvif_simple_server.h"
+#include "ptz_service.h"
 #include "utils.h"
 
 #include <stdio.h>
@@ -250,7 +251,7 @@ int media2_get_profiles()
                 }
                 if (typePTZ) {
                     if (service_ctx.ptz_node.enable == 1) {
-                        size += cat(dest, "media2_service_files/GetProfiles_PTZ.xml", 0);
+                        size += ptz_cat_configuration(dest, "media2_service_files/GetProfiles_PTZ.xml", "0");
                     }
                 }
                 if (service_ctx.profiles[h].audio_decoder != AUDIO_NONE) {
@@ -340,7 +341,7 @@ int media2_get_profiles()
                 }
                 if (typePTZ) {
                     if (service_ctx.ptz_node.enable == 1) {
-                        size += cat(dest, "media2_service_files/GetProfiles_PTZ.xml", 0);
+                        size += ptz_cat_configuration(dest, "media2_service_files/GetProfiles_PTZ.xml", "0");
                     }
                 }
                 if (service_ctx.profiles[h].audio_decoder != AUDIO_NONE) {
@@ -419,7 +420,7 @@ int media2_get_profiles()
                 }
                 if (typePTZ) {
                     if (service_ctx.ptz_node.enable == 1) {
-                        size += cat(dest, "media2_service_files/GetProfiles_PTZ.xml", 0);
+                        size += ptz_cat_configuration(dest, "media2_service_files/GetProfiles_PTZ.xml", "0");
                     }
                 }
                 if (service_ctx.profiles[h].audio_decoder != AUDIO_NONE) {

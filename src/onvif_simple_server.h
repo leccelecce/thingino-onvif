@@ -101,6 +101,9 @@ typedef struct {
     int reverse_mode_on;
     int eflip_supported;
     int eflip_mode_on;
+    // Overrides zoom detection. Zero, which is what a zeroed context gives you,
+    // means detect; 1 forces zoom on and -1 forces it off.
+    int zoom_override;
 } ptz_node_t;
 
 typedef struct {

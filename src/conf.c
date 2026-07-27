@@ -559,6 +559,7 @@ int process_json_conf_file(char *file)
     service_ctx.ptz_node.reverse_mode_on = 0;
     service_ctx.ptz_node.eflip_supported = 0;
     service_ctx.ptz_node.eflip_mode_on = 0;
+    service_ctx.ptz_node.zoom_override = 0;
 
     if (camera_section && get_object_item(camera_section, "model"))
         get_string_from_json(&(service_ctx.model), camera_section, "model");
@@ -914,6 +915,13 @@ int process_json_conf_file(char *file)
             service_ctx.ptz_node.eflip_mode_on = (strcasecmp(eflip_mode->value.string, "ON") == 0);
         } else {
             get_bool_from_json(&(service_ctx.ptz_node.eflip_mode_on), value, "eflip_mode_on");
+        }
+
+        // Tri-state, so it cannot go through get_bool_from_json(): that one cannot
+        // tell "absent" from "false", and absent has to mean "work it out yourself".
+        JsonValue *zoom_supported = get_object_item(value, "zoom_supported");
+        if (zoom_supported && zoom_supported->type == JSON_BOOL) {
+            service_ctx.ptz_node.zoom_override = zoom_supported->value.boolean ? 1 : -1;
         }
     }
 

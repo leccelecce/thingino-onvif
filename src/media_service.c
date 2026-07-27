@@ -21,6 +21,7 @@
 #include "log.h"
 #include "mxml_wrapper.h"
 #include "onvif_simple_server.h"
+#include "ptz_service.h"
 #include "utils.h"
 
 #include <stdio.h>
@@ -287,7 +288,7 @@ int media_get_profiles()
             }
 
             if (service_ctx.ptz_node.enable == 1) {
-                size += cat(dest, "media_service_files/GetProfile_PTZ.xml", 2, "%USE_COUNT%", "1");
+                size += ptz_cat_configuration(dest, "media_service_files/GetProfile_PTZ.xml", "1");
             }
 
             if (media_audio_output_supported()) {
@@ -351,7 +352,7 @@ int media_get_profiles()
             }
 
             if (service_ctx.ptz_node.enable == 1) {
-                size += cat(dest, "media_service_files/GetProfile_PTZ.xml", 2, "%USE_COUNT%", "2");
+                size += ptz_cat_configuration(dest, "media_service_files/GetProfile_PTZ.xml", "2");
             }
 
             if (media_audio_output_supported()) {
@@ -402,7 +403,7 @@ int media_get_profiles()
             }
 
             if (service_ctx.ptz_node.enable == 1) {
-                size += cat(dest, "media_service_files/GetProfile_PTZ.xml", 2, "%USE_COUNT%", "2");
+                size += ptz_cat_configuration(dest, "media_service_files/GetProfile_PTZ.xml", "2");
             }
 
             if (media_audio_output_supported()) {
@@ -506,7 +507,7 @@ int media_get_profile()
             }
 
             if (service_ctx.ptz_node.enable == 1) {
-                size += cat(dest, "media_service_files/GetProfile_PTZ.xml", 0);
+                size += ptz_cat_configuration(dest, "media_service_files/GetProfile_PTZ.xml", profiles_num);
             }
 
             if (media_audio_output_supported()) {
@@ -570,7 +571,7 @@ int media_get_profile()
             }
 
             if (service_ctx.ptz_node.enable == 1) {
-                size += cat(dest, "media_service_files/GetProfile_PTZ.xml", 0);
+                size += ptz_cat_configuration(dest, "media_service_files/GetProfile_PTZ.xml", profiles_num);
             }
 
             if (media_audio_output_supported()) {

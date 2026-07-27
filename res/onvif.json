@@ -116,8 +116,6 @@
     "move_x": "/bin/motors -d h -x %f",
     "move_y": "/bin/motors -d h -y %f",
     "move_both": "/bin/motors -d h -x %f -y %f",
-    "move_in": "/sbin/ptz_zoom_in",
-    "move_out": "/sbin/ptz_zoom_out",
     "move_stop": "/bin/motors -d s",
     "move_preset": "/sbin/ptz_presets %d > /dev/null",
     "goto_home_position": "/bin/motors -d b",

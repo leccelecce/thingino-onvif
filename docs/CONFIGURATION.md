@@ -84,6 +84,32 @@ An array of media profiles. The URL templates use `%s` placeholder for device IP
 }
 ```
 
+### Zoom
+
+Zoom spaces are only advertised when the device can actually zoom. The server
+works this out from the rest of the PTZ config: it needs a zoom step range that
+is not empty (`max_step_z` greater than `min_step_z`) and at least one command
+that can act on the zoom axis (`move_in`, `move_out`, `jump_to_abs_speed` or
+`jump_to_rel_speed`). A device that fails either test advertises no zoom spaces,
+no zoom limits and no zoom position, and faults with `ter:SpaceNotSupported` if
+a client asks it to zoom anyway.
+
+Set `zoom_supported` to override the detection:
+
+```
+{
+  "zoom_supported": true,
+  "min_step_z": 0,
+  "max_step_z": 1000,
+  "move_in": "/usr/local/bin/ptz_move -m in -s %f",
+  "move_out": "/usr/local/bin/ptz_move -m out -s %f"
+}
+```
+
+`true` forces the zoom elements back into every response; `false` suppresses
+them even on a device that would otherwise pass. Omit the key to let the server
+decide.
+
 ## /etc/onvif.d/relays.json
 ```
 [
